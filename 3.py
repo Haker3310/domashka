@@ -1,6 +1,6 @@
-a = input('')
-b = input('')
-c = input('')
+a = input('введите 1е число')
+b = input('введите 2е число')
+c = input('введите 3е число')
 
 print (int(a) * 2)
 print (int(b) - 3)
