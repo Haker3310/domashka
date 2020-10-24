@@ -9,7 +9,7 @@ while i < n:
 		break
 	i += 1
  
-if numb == 1:
+if numb == 1 or n == 2:
 	print("Число простое")
 else:
 	print("Число не простое")
