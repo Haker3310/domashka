@@ -1,14 +1,28 @@
-import sqlite3, os, time
+import sqlite3, os, time, argparse
 
 con = sqlite3.connect("cont_book.db")
 cursor = con.cursor()
 vvod = ''
+'''parser = argparse.ArgumentParser(description='Контактная книга')
 
+parser.add_argument('-s', '--see',default=1)
+args = parser.parse_args()
 
-class Cont_book(object):
+if args.see:
+	cursor.execute('SELECT name, phone FROM contacts')
+	numb = 0
+	for contact in cursor:
+		numb +=1
+		print(numb,'-', contact)
+	if numb == 0:
+		print('Номеров нет!')
+else:
+	pass
+'''
+class Cont_book():
 	def __init__(self):
 		try:
-			cursor.execute('CREATE TABLE contacts(Name TEXT, phone TEXT unique)')
+			cursor.execute('CREATE TABLE contacts(Name TEXT, phone TEXT)')
 		except sqlite3.OperationalError:
 			pass
 
