@@ -22,7 +22,6 @@ class Cont_book(object):
 	def remove():
 		name = input('Введите имя которое хотите удалить - ')
 		cursor.execute('DELETE FROM contacts WHERE name=?', [name])
-		con.commit()
 
 	def see():
 		cursor.execute('SELECT name, phone FROM contacts')
@@ -34,6 +33,7 @@ class Cont_book(object):
 			print('Номеров нет!')
 		print()
 		input('Нажмите "Enter" чтобы продолжить ')
+		con.commit()
 
 	def save():
 		print('Изменения были сохранены')
