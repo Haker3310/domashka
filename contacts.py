@@ -1,24 +1,9 @@
-import sqlite3, os, time, argparse
+import sqlite3, os, time, argparse, sys
 
 con = sqlite3.connect("cont_book.db")
 cursor = con.cursor()
 vvod = ''
-'''parser = argparse.ArgumentParser(description='Контактная книга')
 
-parser.add_argument('-s', '--see',default=1)
-args = parser.parse_args()
-
-if args.see:
-	cursor.execute('SELECT name, phone FROM contacts')
-	numb = 0
-	for contact in cursor:
-		numb +=1
-		print(numb,'-', contact)
-	if numb == 0:
-		print('Номеров нет!')
-else:
-	pass
-'''
 class Cont_book():
 	def __init__(self):
 		try:
@@ -74,6 +59,23 @@ class Menu(Cont_book):
 			Cont_book.see()
 		if vvod == 'save':
 			Cont_book.save()
+
+parser = argparse.ArgumentParser(description='Cont_book')
+parser.add_argument('-s', '--see', action='store_true', help='Посмотреть контакты')
+parser.add_argument('-a', '--add', action='store_true', help='Создать контакт')
+parser.add_argument('-r', '--remove', action='store_true', help='Удалить контакт')
+args = parser.parse_args()
+
+if args.see:
+	Cont_book.see()
+	sys.exit()
+if args.add:
+	Cont_book.add()
+	sys.exit()
+if args.remove:
+	Cont_book.remove()
+	con.commit()
+	sys.exit()
 
 Cont_book()
 while True:
