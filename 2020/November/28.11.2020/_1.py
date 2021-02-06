@@ -4,5 +4,5 @@ while True:
 		f1= stroka.find('/*')	
 		f2= stroka.find('*/')
 		delete = stroka[f1: f2 + 2]
-		stroka = stroka.replace(delete, '')
+		stroka = stroka.replace(delete, ' ')
 	print (stroka)

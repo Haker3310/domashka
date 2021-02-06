@@ -1,0 +1,10 @@
+'''lol = open('pwd.txt')
+olo = lol.readlines()
+print (olo)
+print (olo)
+print (lol)'''
+f = open('test.txt','r', encoding='UTF-8')
+f.readline()
+f.read(1)
+f.readline()
+f.close()
