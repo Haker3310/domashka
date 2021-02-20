@@ -17,6 +17,6 @@ class Vector():
     		)
     def vec_proizv(self,obj):
     	return Vector(self.x*obj.z-self.z*obj.y*self.z*obj.x-self.x*obj.z*self.x*obj.y-self.y*obj.x)
-
+ 
 
 v = Vector
